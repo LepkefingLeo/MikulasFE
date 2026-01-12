@@ -8,7 +8,7 @@ export const AssignToyPage = () => {
 
   return (
     <>
-      <h2>Ajándék kiosztás</h2>
+      <h2>Ajándékok kiosztása</h2>
 
       <select onChange={(e) => setChildId(Number(e.target.value))}>
         <option value="">Gyerek</option>

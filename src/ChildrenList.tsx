@@ -8,9 +8,9 @@ export const ChildrenPage = () => {
       <h2>Gyerekek listája</h2>
       <ul>
         {childrenList.map((c) => (
-          <li key={c.id}>
-            {c.name} – {c.country} –{" "}
-            {c.wasGoodOrNot ? "Jó volt" : "Rossz volt"}
+          <li className="children" key={c.id}>
+            <strong>Név:</strong> {c.name}, <br /><strong>Cím:</strong> {c.address},{" "} <br /><strong>Jó volt-e?</strong> {" "}
+            {c.wasGoodOrNot ? "jó volt" : "rossz volt"}
           </li>
         ))}
       </ul>

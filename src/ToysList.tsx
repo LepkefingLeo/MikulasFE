@@ -4,6 +4,7 @@ import { useData } from "./DataContext";
 export const ToysPage = () => {
   const { toys, createToy, deleteToy } = useData();
   const [name, setName] = useState<string>("");
+  const [material, setMaterial] = useState<string>("");
 
   return (
     <>
@@ -11,13 +12,19 @@ export const ToysPage = () => {
 
       <input
         value={name}
-        placeholder="Ajándék neve"
+        placeholder="Ajándék neve..."
         onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        value={material}
+        placeholder="Anyaga..."
+        onChange={(e) => setMaterial(e.target.value)}
       />
       <button
         onClick={() => {
-          createToy({ name, material: "other", weight: 1 });
+          createToy({ name, material, weight: 1 });
           setName("");
+          setMaterial("");
         }}
       >
         Létrehozás
@@ -25,7 +32,7 @@ export const ToysPage = () => {
 
       <ul>
         {toys.map((toy) => (
-          <li key={toy.id}>
+          <li className="toys" key={toy.id}>
             {toy.name} ({toy.material})
             <button onClick={() => deleteToy(toy.id)}>❌</button>
           </li>
