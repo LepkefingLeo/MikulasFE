@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useData } from "./DataContext";
 
 export const AssignToyPage = () => {
-  const { childrenList, toys, assignToy } = useData();
+  const { childrenList, toys, assignToy, removeToyFromChild } = useData(); // hozzáadva
   const [childId, setChildId] = useState<number | null>(null);
   const [toyId, setToyId] = useState<number | null>(null);
 
@@ -33,6 +33,14 @@ export const AssignToyPage = () => {
         onClick={() => assignToy(childId!, toyId!)}
       >
         Hozzárendelés
+      </button>
+
+      <button
+        disabled={!childId || !toyId}
+        onClick={() => removeToyFromChild(childId!, toyId!)}
+        style={{ marginLeft: "8px" }}
+      >
+        Törlés
       </button>
     </>
   );

@@ -14,6 +14,7 @@ interface DataContextType {
   createToy: (toy: Partial<Toy>) => Promise<void>;
   deleteToy: (id: number) => Promise<void>;
   assignToy: (childId: number, toyId: number) => Promise<void>;
+  removeToyFromChild: (childId: number, toyId: number) => Promise<void>; // hozzáadva
 }
 
 const DataContext = createContext<DataContextType | null>(null);
@@ -46,9 +47,14 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     loadData();
   };
 
+  const removeToyFromChild = async (childId: number, toyId: number) => {
+    await api.removeToyFromChild(childId, toyId);
+    loadData();
+  };
+
   return (
     <DataContext.Provider
-      value={{ childrenList, toys, createToy, deleteToy, assignToy }}
+      value={{ childrenList, toys, createToy, deleteToy, assignToy, removeToyFromChild }}
     >
       {children}
     </DataContext.Provider>

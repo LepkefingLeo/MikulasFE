@@ -32,4 +32,10 @@ export const api = {
       body: JSON.stringify({ childId, toyId }),
     });
   },
-};
+
+  removeToyFromChild: async (childId: number, toyId: number): Promise<void> => {
+    await fetch(`${BASE_URL}/children/${childId}/toys/${toyId}`, {
+      method: "DELETE",
+    });
+  },
+}; 
