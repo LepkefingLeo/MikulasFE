@@ -26,8 +26,8 @@ export const api = {
   },
 
   assignToy: async (childId: number, toyId: number): Promise<void> => {
-    await fetch(`${BASE_URL}/connection`, {
-      method: "POST",
+    await fetch(`${BASE_URL}/children/${childId}/toys/${toyId}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ childId, toyId }),
     });
