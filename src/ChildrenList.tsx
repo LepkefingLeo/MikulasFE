@@ -4,16 +4,16 @@ export const ChildrenPage = () => {
   const { childrenList } = useData();
 
   return (
-    <>
-      <h2>Gyerekek listája</h2>
+    <div className="container py-4">
+      <h2 className="gyerekeklistaja">Gyerekek listája</h2>
       <ul>
         {childrenList.map((c) => (
           <li className="children" key={c.id}>
             <strong>Név:</strong> {c.name}, <br /><strong>Cím:</strong> {c.address},{" "} <br /><strong>Jó volt-e?</strong> {" "}
-            {c.wasGoodOrNot ? "jó volt" : "rossz volt"}
+            {c.wasGoodOrNot ? "Igen" : "Nem"}
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };

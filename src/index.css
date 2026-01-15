@@ -1,3 +1,41 @@
-.children {
-    margin-bottom: 10px;
+body {
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;    
+}
+
+.text-highlight {
+  color: #c62828 !important;
+}
+
+.gyerekeklistaja {
+    margin-bottom: 15px;
+}
+
+.card {
+  color: #1b5e20;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(27,94,32,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.card-header, .list-group-item.active {
+  background: #c62828;
+  color: #fff;
+}
+
+.list-group-item {
+  border: none;
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+h1, h2, h3, h4 {
+  color: #1b5e20;
+}
+
+nav {
+    color: #fff;
+    
 }

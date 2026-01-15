@@ -7,37 +7,52 @@ export const ToysPage = () => {
   const [material, setMaterial] = useState<string>("");
 
   return (
-    <>
-      <h2>Ajándékok</h2>
+    <div className="container py-4">
+      <h2 className="mb-3">Ajándékok</h2>
 
-      <input
-        value={name}
-        placeholder="Ajándék neve..."
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        value={material}
-        placeholder="Anyaga..."
-        onChange={(e) => setMaterial(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          createToy({ name, material, weight: 1 });
-          setName("");
-          setMaterial("");
-        }}
-      >
-        Létrehozás
-      </button>
+      <div className="mb-3 d-flex gap-2">
+        <input
+          className="form-control"
+          value={name}
+          placeholder="Ajándék neve..."
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          className="form-control"
+          value={material}
+          placeholder="Anyaga..."
+          onChange={(e) => setMaterial(e.target.value)}
+        />
+        <button
+          className="btn btn-success"
+          onClick={() => {
+            createToy({ name, material, weight: 1 });
+            setName("");
+            setMaterial("");
+          }}
+        >
+          Létrehozás
+        </button>
+      </div>
 
-      <ul>
+      <ul className="list-group">
         {toys.map((toy) => (
-          <li className="toys" key={toy.id}>
-            {toy.name} ({toy.material})
-            <button onClick={() => deleteToy(toy.id)}>❌</button>
+          <li
+            className="list-group-item d-flex justify-content-between align-items-center"
+            key={toy.id}
+          >
+            <span>
+              {toy.name} ({toy.material})
+            </span>
+            <button
+              className="btn btn-sm btn-light"
+              onClick={() => deleteToy(toy.id)}
+            >
+              ❌
+            </button>
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };

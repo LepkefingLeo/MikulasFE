@@ -21,28 +21,31 @@ export const AssignToyPage = () => {
   };
 
   return (
-    <>
-      <h2>Ajándékok kiosztása</h2>
+    <div className="container py-4">
+      <h2 className="mb-3">Ajándékok kiosztása</h2>
 
-      <select onChange={(e) => setChildId(Number(e.target.value))}>
-        <option value="">Gyerek</option>
-        {childrenList.map((c) => (
-          <option key={c.id} value={c.id}>
-            {c.name}
-          </option>
-        ))}
-      </select>
+      <div className="mb-2">
+        <select className="form-select mb-2" onChange={(e) => setChildId(Number(e.target.value))}>
+          <option value="">Gyerek</option>
+          {childrenList.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.name}
+            </option>
+          ))}
+        </select>
 
-      <select onChange={(e) => setToyId(Number(e.target.value))}>
-        <option value="">Ajándék</option>
-        {toys.map((t) => (
-          <option key={t.id} value={t.id}>
-            {t.name}
-          </option>
-        ))}
-      </select>
+        <select className="form-select mb-2" onChange={(e) => setToyId(Number(e.target.value))}>
+          <option value="">Ajándék</option>
+          {toys.map((t) => (
+            <option key={t.id} value={t.id}>
+              {t.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
       <button
+        className="btn btn-success me-2"
         disabled={!childId || !toyId}
         onClick={handleAssign}
       >
@@ -50,9 +53,9 @@ export const AssignToyPage = () => {
       </button>
 
       <button
+        className="btn btn-danger"
         disabled={!childId || !toyId}
         onClick={handleRemove}
-        style={{ marginLeft: "8px" }}
       >
         Törlés
       </button>
@@ -60,6 +63,6 @@ export const AssignToyPage = () => {
       {message && (
         <div style={{ marginTop: "12px", color: messageColor }}>{message}</div>
       )}
-    </>
+    </div>
   );
 };
