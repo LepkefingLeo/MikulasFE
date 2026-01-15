@@ -5,6 +5,7 @@ export const ToysPage = () => {
   const { toys, createToy, deleteToy } = useData();
   const [name, setName] = useState<string>("");
   const [material, setMaterial] = useState<string>("");
+  const [weight, setWeight] = useState<number>();
 
   return (
     <div className="container py-4">
@@ -23,12 +24,20 @@ export const ToysPage = () => {
           placeholder="Anyaga..."
           onChange={(e) => setMaterial(e.target.value)}
         />
+        <input
+          className="form-control"
+          type="number"
+          value={weight}
+          placeholder="Súlya..."
+          onChange={(e) => setWeight(Number(e.target.value))}
+        />
         <button
           className="btn btn-success"
           onClick={() => {
-            createToy({ name, material, weight: 1 });
+            createToy({name, material, weight});
             setName("");
             setMaterial("");
+            setWeight(0);
           }}
         >
           Létrehozás
